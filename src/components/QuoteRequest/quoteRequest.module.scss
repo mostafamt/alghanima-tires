@@ -1,0 +1,161 @@
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 56px 40px;
+}
+
+.info {
+  flex: 1 1 50%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 22, 47, 0.95) 0%,
+    rgba(11, 22, 47, 0.75) 60%,
+    rgba(11, 22, 47, 0.35) 100%
+  );
+}
+
+.infoContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.infoTitle {
+  margin: 0 0 28px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.reasons {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c8102e;
+  color: #ffffff;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.slogan {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #c8102e;
+}
+
+.description {
+  margin: 0;
+  font-size: 14px;
+  color: #c7cbd4;
+}
+
+.form {
+  flex: 1 1 50%;
+  background: #ffffff;
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formTitle {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #14213d;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #14213d;
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+    font-weight: 400;
+    padding: 12px 14px;
+    border: 1px solid #dde1e7;
+    border-radius: 8px;
+    color: #14213d;
+    background: #ffffff;
+    resize: none;
+
+    &::placeholder {
+      color: #a4a9b3;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #c8102e;
+    }
+  }
+
+  select {
+    appearance: none;
+    cursor: pointer;
+  }
+}
+
+.submit {
+  margin-top: 8px;
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  background: #c8102e;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #a80d26;
+  }
+}
