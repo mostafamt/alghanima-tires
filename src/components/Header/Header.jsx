@@ -1,5 +1,7 @@
 import styles from "./header.module.scss";
-import logo from "../../assets/e6cac6a5711a97cd6d409ce1ab9edf00ca48e603.png";
+import logo from "../../assets/alghanima-logo-white.png";
+import drcLogo from "../../assets/b8eda13e05198ac6676ff123f5d90085ec805bd5.png";
+import mitasLogo from "../../assets/1fd437e86e7d7025df87696bb071a7dd7fdbe80a.png";
 
 const navLinks = [
   { label: "الرئيسية", href: "#", active: true },
@@ -7,13 +9,19 @@ const navLinks = [
   { label: "العلامات التجارية", href: "#" },
   { label: "لماذا الغنيمه؟", href: "#" },
   { label: "تواصل معنا", href: "#" },
+  { label: "عن الغنيمه", href: "#" },
 ];
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src={logo} alt="الغنيمه" />
+        <img src={logo} alt="الغنيمه" className={styles.mainLogo} />
+        <div className={styles.brands}>
+          <img src={mitasLogo} alt="Mitas" />
+          <span className={styles.divider} />
+          <img src={drcLogo} alt="DRC" />
+        </div>
       </div>
 
       <nav className={styles.nav}>

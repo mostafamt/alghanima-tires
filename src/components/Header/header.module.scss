@@ -3,20 +3,39 @@
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding: 14px 40px;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  padding: 10px 32px;
+  background: #07111f;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
   flex-shrink: 0;
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.mainLogo {
+  height: 60px;
+  width: auto;
+}
+
+.brands {
+  display: flex;
   align-items: center;
+  gap: 8px;
 
   img {
-    height: 98px;
+    height: 20px;
     width: auto;
   }
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .nav {
@@ -27,28 +46,42 @@
   ul {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
   a {
+    position: relative;
+    display: inline-block;
     font-size: 15px;
     font-weight: 500;
-    color: #2b2b2b;
+    color: #ffffff;
     text-decoration: none;
     white-space: nowrap;
+    padding-bottom: 10px;
     transition: color 0.2s ease;
 
     &:hover {
-      color: #c8102e;
+      color: #e2263d;
     }
   }
 
   .active {
-    color: #c8102e;
+    color: #e2263d;
     font-weight: 700;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: #e2263d;
+      border-radius: 2px;
+    }
   }
 }
 
@@ -56,12 +89,12 @@
   flex-shrink: 0;
   border: none;
   cursor: pointer;
-  background: #c8102e;
+  background: #d71920;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 4px;
+  padding: 13px 26px;
+  border-radius: 999px;
   transition: background 0.2s ease;
 
   &:hover {
