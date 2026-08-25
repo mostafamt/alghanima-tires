@@ -1,37 +1,62 @@
 import styles from "./brandCards.module.scss";
-import mitasLogo from "../../assets/1fd437e86e7d7025df87696bb071a7dd7fdbe80a.png";
-import drcLogo from "../../assets/b8eda13e05198ac6676ff123f5d90085ec805bd5.png";
+import storyImage from "../../assets/c783f4f3de3433d1ab9644878d274e0971a5558d.jpg";
 
-const brands = [
-  {
-    name: "Mitas",
-    logo: mitasLogo,
-    description: "حلول أوروبية للمركبات والمعدات",
-  },
-  {
-    name: "DRC",
-    logo: drcLogo,
-    description: "إطارات قوية لمختلف الاستخدامات",
-  },
+const features = [
+  { title: "تغطية واسعة", subtitle: "كل الجمهورية" },
+  { title: "جملة وقطاعي", subtitle: "لكل القطاعات" },
+  { title: "وكيل معتمد", subtitle: "DRC & Mitas" },
 ];
 
 const BrandCards = () => {
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>العلامات التجارية</h2>
+      <div className={styles.inner}>
+        <div className={styles.media}>
+          <img src={storyImage} alt="عن الغنيمه" />
+          <div className={styles.overlay} />
 
-      <div className={styles.cards}>
-        {brands.map(({ name, logo, description }) => (
-          <div key={name} className={styles.card}>
-            <div className={styles.logoBox}>
-              <img src={logo} alt={name} />
-            </div>
-            <p className={styles.description}>{description}</p>
-            <a href="#" className={styles.link}>
-              تعرف على المنتجات
-            </a>
+          <button type="button" className={styles.playButton} aria-label="تشغيل الفيديو">
+            <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
+              <path d="M1 1.5L18.5 12L1 22.5V1.5Z" fill="currentColor" />
+            </svg>
+          </button>
+
+          <div className={styles.caption}>
+            <span className={styles.captionLabel}>فيديو عن الغنيمه</span>
+            <span className={styles.captionTitle}>قصة ثقة على كل طريق</span>
           </div>
-        ))}
+        </div>
+
+        <div className={styles.content}>
+          <span className={styles.eyebrow}>عن الغنيمه</span>
+          <h2 className={styles.title}>خبرة محلية ومعايير عالمية...</h2>
+          <p className={styles.description}>
+            نوفر حلول الإطارات للملاكي والنقل والمعدات الزراعية، من خلال بيع
+            الجملة والقطاعي وتوزيع يغطي أنحاء الجمهورية.
+          </p>
+
+          <div className={styles.features}>
+            {features.map(({ title, subtitle }) => (
+              <div key={title} className={styles.feature}>
+                <h3 className={styles.featureTitle}>{title}</h3>
+                <p className={styles.featureSubtitle}>{subtitle}</p>
+              </div>
+            ))}
+          </div>
+
+          <button type="button" className={styles.cta}>
+            شاهد قصة الغنيمه
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+              <path
+                d="M7 1L1 7L7 13"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );

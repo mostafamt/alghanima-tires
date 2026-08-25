@@ -14,14 +14,16 @@ const categories = [
 const Categories = () => {
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>فئات الإطارات</h2>
+      <div className={styles.heading}>
+        <h2 className={styles.title}>فئات الإطارات</h2>
+        <span className={styles.underline} />
+      </div>
 
       <div className={styles.grid}>
         {categories.map(({ name, image }) => (
           <div key={name} className={styles.card}>
-            <div className={styles.imageBox}>
-              <img src={image} alt={name} />
-            </div>
+            <img src={image} alt={name} />
+            <div className={styles.overlay} />
             <h3 className={styles.name}>{name}</h3>
           </div>
         ))}

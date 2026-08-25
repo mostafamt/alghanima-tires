@@ -1,0 +1,29 @@
+{
+  "package": "Alghanima Website Production Assets v2",
+  "format": "WebP",
+  "themeCompatibility": ["Light", "Dark"],
+  "imageRoleCount": 10,
+  "assets": [
+    {"path":"webp/hero/hero-01-passenger.webp","width":2880,"height":1300,"role":"V2 slider 01 passenger — desktop","objectPosition":"center center"},
+    {"path":"webp/mobile/hero/hero-01-passenger-mobile.webp","width":1080,"height":1440,"role":"V2 slider 01 passenger — mobile","objectPosition":"center center"},
+    {"path":"webp/hero/hero-02-commercial-transport.webp","width":2880,"height":1300,"role":"V2 slider 02 light and heavy transport — desktop","objectPosition":"center center"},
+    {"path":"webp/mobile/hero/hero-02-commercial-transport-mobile.webp","width":1080,"height":1440,"role":"V2 slider 02 light and heavy transport — mobile","objectPosition":"center center"},
+    {"path":"webp/hero/hero-03-agriculture-equipment.webp","width":2880,"height":1300,"role":"V2 slider 03 agriculture and equipment — desktop","objectPosition":"center center"},
+    {"path":"webp/mobile/hero/hero-03-agriculture-equipment-mobile.webp","width":1080,"height":1440,"role":"V2 slider 03 agriculture and equipment — mobile","objectPosition":"center center"},
+    {"path":"webp/categories/category-passenger.webp","width":1200,"height":1120,"role":"Passenger category card","objectPosition":"center center"},
+    {"path":"webp/categories/category-light-truck.webp","width":1200,"height":1120,"role":"Light-truck category card","objectPosition":"center center"},
+    {"path":"webp/categories/category-heavy-truck.webp","width":1200,"height":1120,"role":"Heavy-truck category card","objectPosition":"center center"},
+    {"path":"webp/categories/category-agriculture.webp","width":1200,"height":1120,"role":"Agriculture category card","objectPosition":"center center"},
+    {"path":"webp/about/about-warehouse-landscape.webp","width":1920,"height":1280,"role":"About Alghanima responsive master","objectPosition":"center center"},
+    {"path":"webp/about/about-warehouse-portrait.webp","width":912,"height":2320,"role":"About Alghanima desktop tall crop","objectPosition":"center center"},
+    {"path":"webp/mobile/about/about-warehouse-mobile.webp","width":1080,"height":1440,"role":"About Alghanima mobile crop","objectPosition":"center center"},
+    {"path":"webp/insets/transport-light-truck.webp","width":1280,"height":760,"role":"Transport slider supporting visual","objectPosition":"center center"},
+    {"path":"webp/insets/agriculture-tire-range.webp","width":1200,"height":760,"role":"Agriculture slider supporting visual","objectPosition":"center center"},
+    {"path":"webp/logos/alghanima/logo-alghanima-arabic-light.webp","width":1973,"height":2019,"role":"Complete Alghanima Arabic Light lockup from Figma"},
+    {"path":"webp/logos/alghanima/logo-alghanima-arabic-dark.webp","width":2048,"height":2001,"role":"Complete Alghanima Arabic Dark lockup from Figma"},
+    {"path":"webp/logos/alghanima/logo-alghanima-english-light.webp","width":2031,"height":1987,"role":"Complete Alghanima English Light lockup from Figma"},
+    {"path":"webp/logos/alghanima/logo-alghanima-english-dark.webp","width":2018,"height":2002,"role":"Complete Alghanima English Dark lockup from Figma"},
+    {"path":"webp/logos/brands/brand-drc.webp","width":1600,"height":380,"role":"DRC brand panel from approved Figma artwork"},
+    {"path":"webp/logos/brands/brand-mitas.webp","width":1600,"height":380,"role":"Mitas brand panel from approved Figma artwork"}
+  ]
+}

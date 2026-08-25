@@ -1,7 +1,7 @@
 .wrapper {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 56px 40px;
+  width: 100%;
+  background: #07111f;
+  padding: 56px 40px 64px;
   text-align: center;
 }
 
@@ -9,24 +9,26 @@
   margin: 0 0 12px;
   font-size: 14px;
   font-weight: 700;
-  color: #c8102e;
+  color: #e5142e;
 }
 
 .title {
   margin: 0 0 16px;
   font-size: 28px;
   font-weight: 800;
-  color: #14213d;
+  color: #ffffff;
 }
 
 .description {
   margin: 0 auto 40px;
   max-width: 680px;
   font-size: 15px;
-  color: #5a5f6b;
+  color: #9aa1af;
 }
 
 .content {
+  max-width: 1320px;
+  margin: 0 auto;
   display: flex;
   align-items: stretch;
   gap: 24px;
@@ -39,41 +41,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f7f8fa;
-  border-radius: 16px;
   padding: 40px;
   text-align: center;
+}
 
-  img {
-    width: 220px;
-    height: auto;
-    margin-bottom: 24px;
-  }
+.mapIcon {
+  width: 220px;
+  height: auto;
+  margin-bottom: 24px;
 }
 
 .mapTitle {
   margin: 0 0 6px;
   font-size: 18px;
   font-weight: 800;
-  color: #14213d;
+  color: #ffffff;
 }
 
 .mapSubtitle {
   margin: 0;
   font-size: 14px;
-  color: #8a8f98;
+  color: #9aa1af;
 }
 
 .points {
   flex: 1 1 55%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
 }
 
 .point {
   padding: 20px 24px;
-  border: 1px solid #eceef1;
+  border: 1px solid #2b4a72;
   border-radius: 12px;
 }
 
@@ -81,11 +82,76 @@
   margin: 0 0 8px;
   font-size: 17px;
   font-weight: 700;
-  color: #14213d;
+  color: #ffffff;
 }
 
 .pointDescription {
   margin: 0;
   font-size: 14px;
-  color: #8a8f98;
+  color: #9aa1af;
+}
+
+.cta {
+  max-width: 1320px;
+  margin: 56px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 36px 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+    90deg,
+    #0b1220 0%,
+    #1c1330 32%,
+    #4a0f1f 68%,
+    #8a0e15 100%
+  );
+  text-align: right;
+}
+
+.ctaText {
+  flex: 1;
+}
+
+.ctaTitle {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ctaDescription {
+  margin: 0;
+  font-size: 14px;
+  color: #d7dae1;
+}
+
+.ctaButton {
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  background: #e5142e;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #c8102e;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+  }
 }
