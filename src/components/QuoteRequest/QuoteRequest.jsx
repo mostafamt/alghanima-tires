@@ -1,5 +1,5 @@
 import styles from "./quoteRequest.module.scss";
-import warehouse from "../../assets/c783f4f3de3433d1ab9644878d274e0971a5558d.jpg";
+import warehouse from "../../assets/about-warehouse-master.png";
 
 const reasons = [
   "وكيل معتمد لإطارات DRC & Mitas",

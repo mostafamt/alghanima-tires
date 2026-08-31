@@ -1,5 +1,5 @@
 import styles from "./brandCards.module.scss";
-import storyImage from "../../assets/c783f4f3de3433d1ab9644878d274e0971a5558d.jpg";
+import storyImage from "../../assets/about-warehouse-master.png";
 
 const features = [
   { title: "تغطية واسعة", subtitle: "كل الجمهورية" },

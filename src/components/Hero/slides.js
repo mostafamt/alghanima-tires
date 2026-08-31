@@ -1,5 +1,6 @@
-import slide1Image from "../../assets/slider1.jpg";
-import slide2Image from "../../assets/slider2.jpg";
+import slide1Image from "../../assets/slider1.png";
+import slide2Image from "../../assets/slider2.png";
+import slide3Image from "../../assets/slider3.png";
 
 const slides = [
   {
@@ -17,6 +18,14 @@ const slides = [
     description:
       "حلول إطارات معتمدة للشاحنات والنقل الثقيل بمقاسات متنوعة، مع بيع جملة وقطاعي وتوزيع على مستوى الجمهورية.",
     ctaText: "استعرض إطارات النقل",
+  },
+  {
+    image: slide3Image,
+    title: "إطارات الجرارات واللودر والمعدات",
+    highlight: "قوة للأرض والعمل الشاق",
+    description:
+      "إطارات بنقشات قوية للجرارات واللودر والمعدات الزراعية، مصممة للتماسك والتحمل.",
+    ctaText: "استعرض إطارات الجرارات",
   },
 ];
 

@@ -17,11 +17,6 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img src={logo} alt="الغنيمه" className={styles.mainLogo} />
-        <div className={styles.brands}>
-          <img src={mitasLogo} alt="Mitas" />
-          <span className={styles.divider} />
-          <img src={drcLogo} alt="DRC" />
-        </div>
       </div>
 
       <nav className={styles.nav}>
