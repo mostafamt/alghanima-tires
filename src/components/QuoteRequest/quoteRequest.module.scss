@@ -139,7 +139,6 @@
   color: var(--color-text-subtle);
 
   input,
-  select,
   textarea {
     font: inherit;
     font-weight: 400;
@@ -159,12 +158,6 @@
       border-color: var(--color-accent);
     }
   }
-
-  select {
-    appearance: none;
-    cursor: pointer;
-    width: 100%;
-  }
 }
 
 .selectWrap {
@@ -173,11 +166,74 @@
   align-items: center;
 }
 
+.selectTrigger {
+  font: inherit;
+  font-weight: 400;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 8px;
+  color: var(--color-text);
+  background: var(--color-surface-soft);
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.placeholder {
+  color: var(--color-placeholder);
+}
+
 .chevron {
   position: absolute;
   left: 16px;
   color: var(--color-text-muted);
   pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.selectOptions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.selectOption {
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--color-surface-soft);
+  }
+}
+
+.selectOptionActive {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .submit {

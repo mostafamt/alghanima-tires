@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styles from "./quoteRequest.module.scss";
 import warehouse from "../../assets/about-warehouse-master.png";
 
@@ -8,7 +9,43 @@ const reasons = [
   "توزيع يغطي أنحاء الجمهورية",
 ];
 
+const vehicleTypes = [
+  { value: "passenger", label: "سيارات ملاكي" },
+  { value: "light-truck", label: "نقل خفيف" },
+  { value: "heavy-truck", label: "نقل ثقيل" },
+  { value: "agriculture", label: "جرارات ومعدات زراعية" },
+];
+
 const QuoteRequest = () => {
+  const [isVehicleMenuOpen, setIsVehicleMenuOpen] = useState(false);
+  const [vehicleType, setVehicleType] = useState("");
+  const vehicleFieldRef = useRef(null);
+
+  useEffect(() => {
+    if (!isVehicleMenuOpen) return undefined;
+
+    const handleClickOutside = (event) => {
+      if (!vehicleFieldRef.current?.contains(event.target)) {
+        setIsVehicleMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsVehicleMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isVehicleMenuOpen]);
+
+  const selectedVehicleLabel = vehicleTypes.find(
+    (type) => type.value === vehicleType
+  )?.label;
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>
@@ -50,20 +87,26 @@ const QuoteRequest = () => {
             <input type="tel" placeholder="مثال: 01xxxxxxxxx" />
           </label>
 
-          <label className={styles.field}>
-            <span>نوع المركبة</span>
-            <div className={styles.selectWrap}>
-              <select defaultValue="">
-                <option value="" disabled>
-                  اختر نوع المركبة
-                </option>
-                <option value="passenger">سيارات ملاكي</option>
-                <option value="light-truck">نقل خفيف</option>
-                <option value="heavy-truck">نقل ثقيل</option>
-                <option value="agriculture">جرارات ومعدات زراعية</option>
-              </select>
+          <div className={styles.field}>
+            <span id="vehicle-type-label">نوع المركبة</span>
+            <div className={styles.selectWrap} ref={vehicleFieldRef}>
+              <button
+                type="button"
+                className={styles.selectTrigger}
+                aria-haspopup="listbox"
+                aria-expanded={isVehicleMenuOpen}
+                aria-labelledby="vehicle-type-label"
+                onClick={() => setIsVehicleMenuOpen((prev) => !prev)}
+              >
+                <span className={selectedVehicleLabel ? "" : styles.placeholder}>
+                  {selectedVehicleLabel || "اختر نوع المركبة"}
+                </span>
+              </button>
+
               <svg
-                className={styles.chevron}
+                className={`${styles.chevron} ${
+                  isVehicleMenuOpen ? styles.chevronOpen : ""
+                }`}
                 width="12"
                 height="8"
                 viewBox="0 0 12 8"
@@ -77,8 +120,29 @@ const QuoteRequest = () => {
                   strokeLinejoin="round"
                 />
               </svg>
+
+              {isVehicleMenuOpen && (
+                <ul className={styles.selectOptions} role="listbox">
+                  {vehicleTypes.map(({ value, label }) => (
+                    <li
+                      key={value}
+                      role="option"
+                      aria-selected={value === vehicleType}
+                      className={`${styles.selectOption} ${
+                        value === vehicleType ? styles.selectOptionActive : ""
+                      }`}
+                      onClick={() => {
+                        setVehicleType(value);
+                        setIsVehicleMenuOpen(false);
+                      }}
+                    >
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          </label>
+          </div>
 
           <label className={styles.field}>
             <span>المقاس أو الكمية المطلوبة</span>

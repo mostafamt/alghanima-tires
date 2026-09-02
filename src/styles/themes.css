@@ -1,5 +1,7 @@
 :root,
 [data-theme="dark"] {
+  color-scheme: dark;
+
   /* backgrounds */
   --color-bg: #07111f;
   --color-bg-alt: #0b1220;
@@ -38,6 +40,8 @@
 }
 
 [data-theme="light"] {
+  color-scheme: light;
+
   --color-bg: #ffffff;
   --color-bg-alt: #f5f6f8;
   --color-surface: #eef0f4;
