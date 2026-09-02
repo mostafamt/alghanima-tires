@@ -11,18 +11,20 @@ const steps = [
 const OrderSteps = () => {
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>خطوات الطلب</h2>
+      <div className={styles.panel}>
+        <h2 className={styles.title}>خطوات الطلب</h2>
 
-      <div className={styles.timeline}>
-        {steps.map(({ number, title, subtitle }) => (
-          <div key={number} className={styles.step}>
-            <span className={styles.circle}>{number}</span>
-            <div className={styles.stepText}>
-              <h3 className={styles.stepTitle}>{title}</h3>
-              <p className={styles.stepSubtitle}>{subtitle}</p>
+        <div className={styles.timeline}>
+          {steps.map(({ number, title, subtitle }) => (
+            <div key={number} className={styles.step}>
+              <span className={styles.circle}>{number}</span>
+              <div className={styles.stepCard}>
+                <h3 className={styles.stepTitle}>{title}</h3>
+                <p className={styles.stepSubtitle}>{subtitle}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
