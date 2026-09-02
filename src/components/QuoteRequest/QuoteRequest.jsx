@@ -16,6 +16,8 @@ const vehicleTypes = [
   { value: "agriculture", label: "جرارات ومعدات زراعية" },
 ];
 
+const WHATSAPP_NUMBER = "201005600075";
+
 const QuoteRequest = () => {
   const [isVehicleMenuOpen, setIsVehicleMenuOpen] = useState(false);
   const [vehicleType, setVehicleType] = useState("");
@@ -46,6 +48,29 @@ const QuoteRequest = () => {
     (type) => type.value === vehicleType
   )?.label;
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name")?.toString().trim();
+    const phone = formData.get("phone")?.toString().trim();
+    const sizeQuantity = formData.get("sizeQuantity")?.toString().trim();
+
+    const messageLines = [
+      "طلب عرض سعر جديد من موقع الغنيمه",
+      name && `الاسم: ${name}`,
+      phone && `رقم الهاتف: ${phone}`,
+      selectedVehicleLabel && `نوع المركبة: ${selectedVehicleLabel}`,
+      sizeQuantity && `المقاس أو الكمية المطلوبة: ${sizeQuantity}`,
+    ].filter(Boolean);
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      messageLines.join("\n")
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>
@@ -74,17 +99,17 @@ const QuoteRequest = () => {
           </div>
         </div>
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.formTitle}>اطلب عرض سعر</h2>
 
           <label className={styles.field}>
             <span>الاسم</span>
-            <input type="text" placeholder="اكتب الاسم بالكامل" />
+            <input type="text" name="name" placeholder="اكتب الاسم بالكامل" required />
           </label>
 
           <label className={styles.field}>
             <span>رقم الهاتف</span>
-            <input type="tel" placeholder="مثال: 01xxxxxxxxx" />
+            <input type="tel" name="phone" placeholder="مثال: 01xxxxxxxxx" required />
           </label>
 
           <div className={styles.field}>
@@ -146,7 +171,11 @@ const QuoteRequest = () => {
 
           <label className={styles.field}>
             <span>المقاس أو الكمية المطلوبة</span>
-            <textarea rows={3} placeholder="مثال: 205/55 R16 — الكمية: 4" />
+            <textarea
+              rows={3}
+              name="sizeQuantity"
+              placeholder="مثال: 205/55 R16 — الكمية: 4"
+            />
           </label>
 
           <button type="submit" className={styles.submit}>
