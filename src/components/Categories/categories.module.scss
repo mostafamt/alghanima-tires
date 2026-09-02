@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  background: #0b1220;
+  background: var(--color-bg-alt);
   padding: 56px 40px 64px;
 }
 
@@ -15,7 +15,7 @@
   margin: 0 0 10px;
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
   width: 44px;
   height: 3px;
   border-radius: 2px;
-  background: #e5142e;
+  background: var(--color-accent);
 }
 
 .grid {
@@ -66,7 +66,7 @@
   margin: 0;
   font-size: 15px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-on-accent);
 }
 
 @media (max-width: 768px) {

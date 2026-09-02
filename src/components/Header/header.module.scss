@@ -4,8 +4,8 @@
   justify-content: space-between;
   gap: 32px;
   padding: 10px 32px;
-  background: #07111f;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-header);
 }
 
 .logo {
@@ -35,7 +35,7 @@
 .divider {
   width: 1px;
   height: 16px;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--color-border);
 }
 
 .nav {
@@ -57,19 +57,19 @@
     display: inline-block;
     font-size: 15px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--color-text);
     text-decoration: none;
     white-space: nowrap;
     padding-bottom: 10px;
     transition: color 0.2s ease;
 
     &:hover {
-      color: #e2263d;
+      color: var(--color-accent);
     }
   }
 
   .active {
-    color: #e2263d;
+    color: var(--color-accent);
     font-weight: 700;
 
     &::after {
@@ -79,18 +79,25 @@
       right: 0;
       bottom: 0;
       height: 2px;
-      background: #e2263d;
+      background: var(--color-accent);
       border-radius: 2px;
     }
   }
+}
+
+.actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .cta {
   flex-shrink: 0;
   border: none;
   cursor: pointer;
-  background: #d71920;
-  color: #ffffff;
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
   font-size: 14px;
   font-weight: 700;
   padding: 13px 26px;
@@ -98,6 +105,6 @@
   transition: background 0.2s ease;
 
   &:hover {
-    background: #a80d26;
+    background: var(--color-accent-hover);
   }
 }

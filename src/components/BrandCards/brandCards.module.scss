@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  background: #0b1220;
+  background: var(--color-bg-alt);
   padding: 56px 40px;
 }
 
@@ -47,13 +47,13 @@
   height: 64px;
   border-radius: 50%;
   border: none;
-  background: #e5142e;
-  color: #ffffff;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 10px var(--color-overlay);
   transition: transform 0.2s ease, background 0.2s ease;
 
   svg {
@@ -61,7 +61,7 @@
   }
 
   &:hover {
-    background: #c8102e;
+    background: var(--color-accent-strong);
     transform: translate(-50%, -50%) scale(1.06);
   }
 }
@@ -78,14 +78,14 @@
 
 .captionLabel {
   font-size: 13px;
-  color: #c3c8d3;
+  color: var(--color-on-accent-muted);
   margin-bottom: 6px;
 }
 
 .captionTitle {
   font-size: 22px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-on-accent);
 }
 
 .content {
@@ -99,7 +99,7 @@
 .eyebrow {
   font-size: 13px;
   font-weight: 700;
-  color: #e5142e;
+  color: var(--color-accent);
   margin-bottom: 12px;
 }
 
@@ -108,14 +108,14 @@
   font-size: 30px;
   font-weight: 800;
   line-height: 1.4;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .description {
   margin: 0 0 28px;
   font-size: 15px;
   line-height: 1.9;
-  color: #9aa1af;
+  color: var(--color-text-muted);
 }
 
 .features {
@@ -130,21 +130,21 @@
   text-align: center;
   padding: 14px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface-soft);
 }
 
 .featureTitle {
   margin: 0 0 4px;
   font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .featureSubtitle {
   margin: 0;
   font-size: 12px;
-  color: #8891a1;
+  color: var(--color-text-faint);
 }
 
 .cta {
@@ -157,12 +157,12 @@
   padding: 14px 28px;
   border-radius: 8px;
   cursor: pointer;
-  background: #c8102e;
-  color: #ffffff;
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
   transition: background 0.2s ease;
 
   &:hover {
-    background: #a80d26;
+    background: var(--color-accent-hover);
   }
 }
 

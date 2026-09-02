@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  background: #0b1220;
+  background: var(--color-bg-alt);
   padding: 56px 40px 64px;
 }
 
@@ -15,7 +15,7 @@
   margin: 0 0 10px;
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
   width: 44px;
   height: 3px;
   border-radius: 2px;
-  background: #e5142e;
+  background: var(--color-accent);
 }
 
 .cards {
@@ -39,8 +39,8 @@
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-soft);
   border-radius: 16px;
 }
 
@@ -51,6 +51,7 @@
   justify-content: center;
   padding: 28px;
   margin-bottom: 24px;
+  /* logos are designed for a light card regardless of theme */
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -66,13 +67,13 @@
 .description {
   margin: 0 0 14px;
   font-size: 15px;
-  color: #9aa1af;
+  color: var(--color-text-muted);
 }
 
 .link {
   font-size: 14px;
   font-weight: 700;
-  color: #e5142e;
+  color: var(--color-accent);
   text-decoration: none;
 
   &:hover {

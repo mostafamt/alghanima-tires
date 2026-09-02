@@ -1,5 +1,5 @@
 .wrapper {
-  background: #14213d;
+  background: var(--color-surface);
   padding: 48px 40px 56px;
 }
 
@@ -8,7 +8,7 @@
   text-align: center;
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .timeline {
@@ -25,7 +25,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--color-border);
   }
 }
 
@@ -47,8 +47,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #c8102e;
-  color: #ffffff;
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -58,11 +58,11 @@
   margin: 0 0 8px;
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .stepSubtitle {
   margin: 0;
   font-size: 13px;
-  color: #9aa2b1;
+  color: var(--color-text-muted);
 }

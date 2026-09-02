@@ -1,6 +1,6 @@
 .footer {
-  background: #14213d;
-  border-top: 4px solid #c8102e;
+  background: var(--color-surface);
+  border-top: 4px solid var(--color-accent-strong);
 }
 
 .container {
@@ -51,20 +51,20 @@
   margin: 0 0 8px;
   font-size: 18px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .brandSubtitle {
   margin: 0;
   font-size: 13px;
-  color: #9aa2b1;
+  color: var(--color-text-muted);
 }
 
 .categoriesTitle {
   margin: 0 0 16px;
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .categories {
@@ -85,24 +85,24 @@
 
   a {
     font-size: 14px;
-    color: #9aa2b1;
+    color: var(--color-text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
 
     &:hover {
-      color: #ffffff;
+      color: var(--color-text);
     }
   }
 }
 
 .bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border-soft);
   padding: 20px 40px;
   text-align: center;
 
   p {
     margin: 0;
     font-size: 13px;
-    color: #9aa2b1;
+    color: var(--color-text-muted);
   }
 }

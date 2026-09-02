@@ -2,6 +2,7 @@ import styles from "./header.module.scss";
 import logo from "../../assets/alghanima-logo-white.png";
 import drcLogo from "../../assets/b8eda13e05198ac6676ff123f5d90085ec805bd5.png";
 import mitasLogo from "../../assets/1fd437e86e7d7025df87696bb071a7dd7fdbe80a.png";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const navLinks = [
   { label: "الرئيسية", href: "#", active: true },
@@ -31,9 +32,12 @@ const Header = () => {
         </ul>
       </nav>
 
-      <button type="button" className={styles.cta}>
-        اطلب عرض سعر
-      </button>
+      <div className={styles.actions}>
+        <ThemeToggle />
+        <button type="button" className={styles.cta}>
+          اطلب عرض سعر
+        </button>
+      </div>
     </header>
   );
 };
