@@ -1,7 +1,13 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
   background: var(--color-bg-alt);
   padding: 56px 40px 64px;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .heading {
@@ -69,12 +75,23 @@
   color: var(--color-on-accent);
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .grid {
     flex-wrap: wrap;
   }
 
   .card {
     flex: 1 1 calc(50% - 8px);
+  }
+}
+
+@include small {
+  .grid {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 1 auto;
+    height: 200px;
   }
 }

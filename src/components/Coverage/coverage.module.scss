@@ -1,8 +1,14 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
   background: var(--color-bg);
   padding: 56px 40px 64px;
   text-align: center;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .eyebrow {
@@ -17,6 +23,10 @@
   font-size: 28px;
   font-weight: 800;
   color: var(--color-text);
+
+  @include small {
+    font-size: 22px;
+  }
 }
 
 .description {
@@ -33,6 +43,10 @@
   align-items: stretch;
   gap: 24px;
   text-align: right;
+
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .mapCard {
@@ -43,12 +57,20 @@
   justify-content: center;
   padding: 40px;
   text-align: center;
+
+  @include small {
+    padding: 24px;
+  }
 }
 
 .mapIcon {
   width: 220px;
   height: auto;
   margin-bottom: 24px;
+
+  @include small {
+    width: 160px;
+  }
 }
 
 .mapTitle {
@@ -102,6 +124,15 @@
   border-radius: 24px;
   background: var(--gradient-cta);
   text-align: right;
+
+  @include mobile {
+    margin-top: 40px;
+    padding: 28px 24px;
+  }
+
+  @include small {
+    border-radius: 16px;
+  }
 }
 
 .ctaText {
@@ -136,13 +167,14 @@
   &:hover {
     background: var(--color-accent-strong);
   }
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-@media (max-width: 900px) {
-  .content {
-    flex-direction: column;
-  }
-
+@include mobile {
   .cta {
     flex-direction: column;
     align-items: flex-start;

@@ -1,4 +1,7 @@
+@use "../../styles/breakpoints" as *;
+
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,6 +9,10 @@
   padding: 10px 32px;
   background: var(--color-bg);
   box-shadow: var(--shadow-header);
+
+  @include mobile {
+    padding: 10px 20px;
+  }
 }
 
 .logo {
@@ -19,6 +26,10 @@
 .mainLogo {
   height: 60px;
   width: auto;
+
+  @include small {
+    height: 44px;
+  }
 }
 
 .brands {
@@ -83,6 +94,46 @@
       border-radius: 2px;
     }
   }
+
+  @include tablet {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    justify-content: flex-start;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-soft);
+    box-shadow: var(--shadow-header);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+    z-index: 20;
+
+    ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      padding: 8px 24px 16px;
+    }
+
+    a {
+      display: block;
+      padding: 12px 0;
+    }
+
+    .active::after {
+      display: none;
+    }
+
+    &.navOpen {
+      max-height: 480px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .actions {
@@ -90,6 +141,10 @@
   display: flex;
   align-items: center;
   gap: 16px;
+
+  @include small {
+    gap: 10px;
+  }
 }
 
 .cta {
@@ -106,5 +161,40 @@
 
   &:hover {
     background: var(--color-accent-hover);
+  }
+
+  @include small {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+
+.menuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  cursor: pointer;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+
+  @media (min-width: 1025px) {
+    display: none;
   }
 }

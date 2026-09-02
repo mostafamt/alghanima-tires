@@ -1,7 +1,13 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
   background: var(--color-bg-alt);
   padding: 56px 40px;
+
+  @include mobile {
+    padding: 40px 20px;
+  }
 }
 
 .inner {
@@ -10,6 +16,10 @@
   display: flex;
   align-items: center;
   gap: 48px;
+
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .media {
@@ -24,6 +34,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @include tablet {
+    width: 100%;
+    height: 320px;
+  }
+
+  @include small {
+    height: 240px;
+    border-radius: 14px;
   }
 }
 
@@ -64,6 +84,11 @@
     background: var(--color-accent-strong);
     transform: translate(-50%, -50%) scale(1.06);
   }
+
+  @include small {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .caption {
@@ -94,6 +119,11 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: right;
+
+  @include tablet {
+    align-items: flex-start;
+    width: 100%;
+  }
 }
 
 .eyebrow {
@@ -109,6 +139,10 @@
   font-weight: 800;
   line-height: 1.4;
   color: var(--color-text);
+
+  @include small {
+    font-size: 22px;
+  }
 }
 
 .description {
@@ -123,6 +157,10 @@
   gap: 12px;
   margin-bottom: 28px;
   width: 100%;
+
+  @include small {
+    flex-wrap: wrap;
+  }
 }
 
 .feature {
@@ -132,6 +170,10 @@
   border-radius: 10px;
   border: 1px solid var(--color-border-soft);
   background: var(--color-surface-soft);
+
+  @include small {
+    flex: 1 1 calc(50% - 6px);
+  }
 }
 
 .featureTitle {
@@ -166,18 +208,3 @@
   }
 }
 
-@media (max-width: 900px) {
-  .inner {
-    flex-direction: column;
-  }
-
-  .media {
-    width: 100%;
-    height: 320px;
-  }
-
-  .content {
-    align-items: flex-start;
-    width: 100%;
-  }
-}

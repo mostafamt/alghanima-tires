@@ -1,7 +1,13 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
   background: var(--color-bg-alt);
   padding: 56px 40px 64px;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .inner {
@@ -10,6 +16,10 @@
   gap: 24px;
   max-width: 1320px;
   margin: 0 auto;
+
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .info {
@@ -22,6 +32,10 @@
   padding: 40px;
   display: flex;
   align-items: center;
+
+  @include small {
+    padding: 28px 24px;
+  }
 }
 
 .overlay {
@@ -102,6 +116,10 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
+
+  @include small {
+    padding: 24px 20px;
+  }
 }
 
 .formTitle {
@@ -178,10 +196,9 @@
   &:hover {
     background: var(--color-accent-hover);
   }
-}
 
-@media (max-width: 900px) {
-  .inner {
-    flex-direction: column;
+  @include small {
+    align-self: stretch;
+    text-align: center;
   }
 }

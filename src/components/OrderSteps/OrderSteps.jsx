@@ -17,8 +17,10 @@ const OrderSteps = () => {
         {steps.map(({ number, title, subtitle }) => (
           <div key={number} className={styles.step}>
             <span className={styles.circle}>{number}</span>
-            <h3 className={styles.stepTitle}>{title}</h3>
-            <p className={styles.stepSubtitle}>{subtitle}</p>
+            <div className={styles.stepText}>
+              <h3 className={styles.stepTitle}>{title}</h3>
+              <p className={styles.stepSubtitle}>{subtitle}</p>
+            </div>
           </div>
         ))}
       </div>

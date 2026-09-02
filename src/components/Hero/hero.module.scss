@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints" as *;
+
 .hero {
   position: relative;
   width: 100%;
@@ -148,7 +150,7 @@
   background: var(--color-accent-strong);
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .hero {
     height: 520px;
   }
@@ -161,5 +163,48 @@
   .title,
   .subtitle {
     font-size: 24px;
+  }
+}
+
+@include small {
+  .hero {
+    height: 420px;
+  }
+
+  .content {
+    left: 16px;
+    max-width: calc(100% - 32px);
+  }
+
+  .title,
+  .subtitle {
+    font-size: 19px;
+  }
+
+  .description {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  .cta {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+
+  .arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .arrowLeft {
+    left: 10px;
+  }
+
+  .arrowRight {
+    right: 10px;
+  }
+
+  .dots {
+    bottom: 14px;
   }
 }

@@ -1,7 +1,13 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
   background: var(--color-bg-alt);
   padding: 56px 40px 64px;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .heading {
@@ -62,6 +68,14 @@
     width: auto;
     object-fit: contain;
   }
+
+  @include small {
+    padding: 20px;
+
+    img {
+      height: 44px;
+    }
+  }
 }
 
 .description {
@@ -81,7 +95,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@include mobile {
   .cards {
     flex-direction: column;
   }

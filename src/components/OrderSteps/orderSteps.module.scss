@@ -1,6 +1,12 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   background: var(--color-surface);
   padding: 48px 40px 56px;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .title {
@@ -27,6 +33,20 @@
     height: 1px;
     background: var(--color-border);
   }
+
+  @include tablet {
+    flex-wrap: wrap;
+    row-gap: 32px;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: 0;
+  }
 }
 
 .step {
@@ -38,6 +58,28 @@
   align-items: center;
   text-align: center;
   padding: 0 12px;
+
+  @include tablet {
+    flex: 0 0 33.333%;
+  }
+
+  @include mobile {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: right;
+    padding: 0 0 32px;
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 48px;
+      right: 23px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--color-border);
+    }
+  }
 }
 
 .circle {
@@ -52,6 +94,17 @@
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 20px;
+  flex-shrink: 0;
+
+  @include mobile {
+    margin-bottom: 0;
+  }
+}
+
+.stepText {
+  @include mobile {
+    padding-top: 10px;
+  }
 }
 
 .stepTitle {
