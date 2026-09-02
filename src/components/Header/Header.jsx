@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styles from "./header.module.scss";
-import logo from "../../assets/alghanima-logo-white.png";
+import logoLight from "../../assets/alghanima-logo-white.png";
+import logoDark from "../../assets/alghanima-logo-dark.png";
 import drcLogo from "../../assets/b8eda13e05198ac6676ff123f5d90085ec805bd5.png";
 import mitasLogo from "../../assets/1fd437e86e7d7025df87696bb071a7dd7fdbe80a.png";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
+import { useTheme } from "../../context/ThemeContext";
 
 const navLinks = [
   { label: "الرئيسية", href: "#", active: true },
@@ -17,6 +19,8 @@ const navLinks = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+  const { theme } = useTheme();
+  const logo = theme === "light" ? logoDark : logoLight;
 
   return (
     <header className={styles.header}>
