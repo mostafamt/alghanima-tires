@@ -1,0 +1,223 @@
+@use "../../styles/breakpoints" as *;
+
+.hero {
+  width: 100%;
+  background: var(--color-bg-alt);
+  padding: 56px 40px 48px;
+  text-align: center;
+
+  @include mobile {
+    padding: 40px 20px 36px;
+  }
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-text);
+
+  @include small {
+    font-size: 24px;
+  }
+}
+
+.description {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.wrapper {
+  width: 100%;
+  background: var(--color-bg);
+  padding: 48px 40px 64px;
+
+  @include mobile {
+    padding: 32px 20px 48px;
+  }
+}
+
+.grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  @include small {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  &.featured {
+    grid-column: 1 / -1;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+
+    .cardIcon {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--color-on-accent);
+    }
+
+    .cardLabel {
+      color: var(--color-on-accent);
+    }
+
+    .cardDescription {
+      color: var(--color-on-accent-muted);
+    }
+
+    .cardArrow {
+      color: var(--color-on-accent);
+    }
+
+    &:hover {
+      border-color: var(--color-accent-hover);
+      background: var(--color-accent-hover);
+    }
+  }
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-soft);
+  color: var(--color-accent);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardLabel {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.cardDescription {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardArrow {
+  flex-shrink: 0;
+  color: var(--color-text-faint);
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.addressCard {
+  max-width: 900px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  text-align: right;
+
+  @include small {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.addressIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-soft);
+  color: var(--color-accent);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.addressBody {
+  flex: 1;
+}
+
+.addressTitle {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.addressText {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.addressLink {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
