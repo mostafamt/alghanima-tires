@@ -172,8 +172,13 @@ const Contact = () => {
               مركز انطلاق التوزيع لمختلف محافظات الجمهورية
             </span>
           </span>
-          {/* TODO: replace with real Google Maps link */}
-          <a href="#" target="_blank" rel="noopener noreferrer" className={styles.addressLink}>
+          {/* Gharbia – Kafr Mit El-Harun */}
+          <a
+            href="https://www.bing.com/maps/default.aspx?v=2&where1=%D8%A7%D9%84%D8%BA%D8%B1%D8%A8%D9%8A%D9%87%20%E2%80%93%20%D9%83%D9%81%D8%B1%20%D9%85%D9%8A%D8%AA%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D9%88%D9%86"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.addressLink}
+          >
             افتح الموقع على الخريطة
           </a>
         </div>
