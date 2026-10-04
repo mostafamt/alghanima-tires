@@ -20,7 +20,7 @@ const BrandCards = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section id="about" className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.media}>
           <video

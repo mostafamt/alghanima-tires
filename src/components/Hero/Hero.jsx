@@ -22,7 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <section className={styles.hero}>
+    <section id="home" className={styles.hero}>
       {slides.map((slide, index) => (
         <div
           key={slide.image}

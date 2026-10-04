@@ -149,7 +149,9 @@
 
 .cta {
   flex-shrink: 0;
+  display: inline-block;
   border: none;
+  text-decoration: none;
   cursor: pointer;
   background: var(--color-accent-strong);
   color: var(--color-on-accent);

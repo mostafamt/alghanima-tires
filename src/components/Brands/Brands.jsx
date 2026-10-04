@@ -17,7 +17,7 @@ const brands = [
 
 const Brands = () => {
   return (
-    <section className={styles.wrapper}>
+    <section id="brands" className={styles.wrapper}>
       <div className={styles.heading}>
         <h2 className={styles.title}>العلامات التجارية</h2>
         <span className={styles.underline} />

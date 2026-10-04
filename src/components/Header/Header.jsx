@@ -1,26 +1,86 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 import logoLight from "../../assets/alghanima-logo-white.png";
 import logoDark from "../../assets/alghanima-logo-dark.png";
-import drcLogo from "../../assets/b8eda13e05198ac6676ff123f5d90085ec805bd5.png";
-import mitasLogo from "../../assets/1fd437e86e7d7025df87696bb071a7dd7fdbe80a.png";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { useTheme } from "../../context/ThemeContext";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const navLinks = [
-  { label: "الرئيسية", href: "#", active: true },
-  { label: "فئات الإطارات", href: "#" },
-  { label: "العلامات التجارية", href: "#" },
-  { label: "لماذا الغنيمه؟", href: "#" },
-  { label: "تواصل معنا", href: "#" },
-  { label: "عن الغنيمه", href: "#" },
+  { label: "الرئيسية", section: "home" },
+  { label: "فئات الإطارات", section: "categories" },
+  { label: "العلامات التجارية", section: "brands" },
+  { label: "لماذا الغنيمه؟", section: "why" },
+  { label: "تواصل معنا", to: "/contact" },
+  { label: "عن الغنيمه", section: "about" },
 ];
+
+const sectionIds = navLinks.filter((link) => link.section).map((link) => link.section);
+
+// highlights the nav link of the section currently in view on the home page
+const useActiveSection = (enabled) => {
+  const [activeSection, setActiveSection] = useState(sectionIds[0]);
+
+  useEffect(() => {
+    if (!enabled) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight / 3;
+      let current = sectionIds[0];
+      let currentTop = -Infinity;
+      sectionIds.forEach((id) => {
+        const top = document.getElementById(id)?.getBoundingClientRect().top;
+        if (top !== undefined && top <= line && top > currentTop) {
+          current = id;
+          currentTop = top;
+        }
+      });
+      setActiveSection(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [enabled]);
+
+  return activeSection;
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const { theme } = useTheme();
   const logo = theme === "light" ? logoDark : logoLight;
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const isHome = pathname === "/";
+  const activeSection = useActiveSection(isHome);
+
+  const goToSection = (event, id) => {
+    event.preventDefault();
+    closeMenu();
+    if (isHome) {
+      scrollToSection(id);
+      window.history.replaceState(null, "", `#${id}`);
+    } else {
+      // Home scrolls to the hash once it mounts
+      navigate(`/#${id}`);
+    }
+  };
+
+  const isActive = ({ section, to }) =>
+    to ? pathname === to : isHome && activeSection === section;
 
   return (
     <header className={styles.header}>
@@ -30,15 +90,25 @@ const Header = () => {
 
       <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`}>
         <ul>
-          {navLinks.map(({ label, href, active }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className={active ? styles.active : ""}
-                onClick={closeMenu}
-              >
-                {label}
-              </a>
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              {link.to ? (
+                <Link
+                  to={link.to}
+                  className={isActive(link) ? styles.active : ""}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  href={`/#${link.section}`}
+                  className={isActive(link) ? styles.active : ""}
+                  onClick={(event) => goToSection(event, link.section)}
+                >
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -46,9 +116,13 @@ const Header = () => {
 
       <div className={styles.actions}>
         <ThemeToggle />
-        <button type="button" className={styles.cta}>
+        <a
+          href="/#quote"
+          className={styles.cta}
+          onClick={(event) => goToSection(event, "quote")}
+        >
           اطلب عرض سعر
-        </button>
+        </a>
         <button
           type="button"
           className={styles.menuToggle}

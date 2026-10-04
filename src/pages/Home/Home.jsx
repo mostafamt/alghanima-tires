@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { scrollToSection } from "../../utils/scrollToSection";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
 import ValueStrip from "../../components/ValueStrip/ValueStrip";
@@ -10,6 +13,13 @@ import Coverage from "../../components/Coverage/Coverage";
 import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
+  const { hash } = useLocation();
+
+  // arriving from another page with /#section
+  useEffect(() => {
+    if (hash) scrollToSection(hash.slice(1));
+  }, [hash]);
+
   return (
     <>
       <Header />

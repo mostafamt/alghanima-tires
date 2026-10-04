@@ -72,7 +72,7 @@ const QuoteRequest = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section id="why" className={styles.wrapper}>
       <div className={styles.inner}>
         <div
           className={styles.info}
@@ -99,7 +99,7 @@ const QuoteRequest = () => {
           </div>
         </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form id="quote" className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.formTitle}>اطلب عرض سعر</h2>
 
           <label className={styles.field}>

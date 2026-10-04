@@ -13,7 +13,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <section className={styles.wrapper}>
+    <section id="categories" className={styles.wrapper}>
       <div className={styles.heading}>
         <h2 className={styles.title}>فئات الإطارات</h2>
         <span className={styles.underline} />
