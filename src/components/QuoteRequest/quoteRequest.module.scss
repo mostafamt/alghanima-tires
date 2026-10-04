@@ -1,7 +1,13 @@
+@use "../../styles/breakpoints" as *;
+
 .wrapper {
   width: 100%;
-  background: #0b1220;
+  background: var(--color-bg-alt);
   padding: 56px 40px 64px;
+
+  @include mobile {
+    padding: 40px 20px 48px;
+  }
 }
 
 .inner {
@@ -10,6 +16,10 @@
   gap: 24px;
   max-width: 1320px;
   margin: 0 auto;
+
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .info {
@@ -22,6 +32,10 @@
   padding: 40px;
   display: flex;
   align-items: center;
+
+  @include small {
+    padding: 28px 24px;
+  }
 }
 
 .overlay {
@@ -46,7 +60,7 @@
   margin: 0 0 28px;
   font-size: 26px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-on-accent);
 }
 
 .reasons {
@@ -64,7 +78,7 @@
     gap: 10px;
     font-size: 15px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--color-on-accent);
   }
 }
 
@@ -75,8 +89,8 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #e5142e;
-  color: #ffffff;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
   font-size: 11px;
   flex-shrink: 0;
 }
@@ -85,30 +99,34 @@
   margin: 0 0 12px;
   font-size: 22px;
   font-weight: 800;
-  color: #e5142e;
+  color: var(--color-accent);
 }
 
 .description {
   margin: 0;
   font-size: 14px;
-  color: #c7cbd4;
+  color: var(--color-on-accent-muted);
 }
 
 .form {
   flex: 1 1 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-soft);
   border-radius: 16px;
   padding: 32px;
   display: flex;
   flex-direction: column;
+
+  @include small {
+    padding: 24px 20px;
+  }
 }
 
 .formTitle {
   margin: 0 0 24px;
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .field {
@@ -118,34 +136,27 @@
   margin-bottom: 18px;
   font-size: 14px;
   font-weight: 600;
-  color: #c7cbd4;
+  color: var(--color-text-subtle);
 
   input,
-  select,
   textarea {
     font: inherit;
     font-weight: 400;
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid var(--color-border-soft);
     border-radius: 8px;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.03);
+    color: var(--color-text);
+    background: var(--color-surface-soft);
     resize: none;
 
     &::placeholder {
-      color: #6f7787;
+      color: var(--color-placeholder);
     }
 
     &:focus {
       outline: none;
-      border-color: #e5142e;
+      border-color: var(--color-accent);
     }
-  }
-
-  select {
-    appearance: none;
-    cursor: pointer;
-    width: 100%;
   }
 }
 
@@ -155,11 +166,74 @@
   align-items: center;
 }
 
+.selectTrigger {
+  font: inherit;
+  font-weight: 400;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 8px;
+  color: var(--color-text);
+  background: var(--color-surface-soft);
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.placeholder {
+  color: var(--color-placeholder);
+}
+
 .chevron {
   position: absolute;
   left: 16px;
-  color: #9aa1af;
+  color: var(--color-text-muted);
   pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.selectOptions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.selectOption {
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--color-surface-soft);
+  }
+}
+
+.selectOptionActive {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .submit {
@@ -167,8 +241,8 @@
   align-self: flex-start;
   border: none;
   cursor: pointer;
-  background: #c8102e;
-  color: #ffffff;
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
   font-size: 15px;
   font-weight: 700;
   padding: 14px 32px;
@@ -176,12 +250,11 @@
   transition: background 0.2s ease;
 
   &:hover {
-    background: #a80d26;
+    background: var(--color-accent-hover);
   }
-}
 
-@media (max-width: 900px) {
-  .inner {
-    flex-direction: column;
+  @include small {
+    align-self: stretch;
+    text-align: center;
   }
 }
