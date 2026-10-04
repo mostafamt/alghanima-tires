@@ -2,6 +2,7 @@ import styles from "./contact.module.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
+// same number for WhatsApp and phone calls
 const WHATSAPP_NUMBER = "201005600075";
 
 const ArrowIcon = () => (
@@ -91,16 +92,14 @@ const channels = [
     id: "phone",
     label: "اتصال هاتفي",
     description: "تحدث مباشرة مع فريق المبيعات",
-    // TODO: replace with real phone number
-    href: "tel:+20xxxxxxxxxx",
+    href: `tel:+${WHATSAPP_NUMBER}`,
     icon: <PhoneIcon />,
   },
   {
     id: "facebook",
     label: "فيسبوك",
     description: "تابع أحدث العروض والمنتجات",
-    // TODO: replace with real Facebook page URL
-    href: "#",
+    href: "https://www.facebook.com/profile.php?id=61592475059651",
     icon: <FacebookIcon />,
   },
   {
