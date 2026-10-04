@@ -106,8 +106,7 @@ const channels = [
     id: "instagram",
     label: "انستجرام",
     description: "صور ومحتوى من داخل الغنيمه",
-    // TODO: replace with real Instagram profile URL
-    href: "#",
+    href: "https://www.instagram.com/alghanima.tires",
     icon: <InstagramIcon />,
   },
   {
