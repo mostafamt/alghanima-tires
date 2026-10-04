@@ -114,16 +114,14 @@ const channels = [
     id: "messenger",
     label: "ماسنجر",
     description: "راسلنا عبر فيسبوك ماسنجر",
-    // TODO: replace with real m.me link
-    href: "#",
+    href: "https://m.me/61592475059651",
     icon: <MessengerIcon />,
   },
   {
     id: "email",
     label: "البريد الإلكتروني",
     description: "للاستفسارات وطلبات الجملة",
-    // TODO: replace with real email address
-    href: "mailto:info@example.com",
+    href: "mailto:AlGhanimatires@gmail.com",
     icon: <MailIcon />,
   },
 ];
