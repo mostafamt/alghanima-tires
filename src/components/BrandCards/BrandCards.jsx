@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import styles from "./brandCards.module.scss";
 import storyImage from "../../assets/about-warehouse-master.png";
 
@@ -8,23 +9,53 @@ const features = [
 ];
 
 const BrandCards = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.scrollIntoView({ behavior: "smooth", block: "center" });
+    video.play();
+  };
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.media}>
-          <img src={storyImage} alt="عن الغنيمه" />
-          <div className={styles.overlay} />
+          <video
+            ref={videoRef}
+            src="/GH1-web.mp4"
+            poster={storyImage}
+            preload="none"
+            playsInline
+            className={isPlaying ? styles.playing : undefined}
+            controls={isPlaying}
+            onPlay={() => setIsPlaying(true)}
+            onEnded={() => setIsPlaying(false)}
+          />
 
-          <button type="button" className={styles.playButton} aria-label="تشغيل الفيديو">
-            <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
-              <path d="M1 1.5L18.5 12L1 22.5V1.5Z" fill="currentColor" />
-            </svg>
-          </button>
+          {!isPlaying && (
+            <>
+              <div className={styles.overlay} />
 
-          <div className={styles.caption}>
-            <span className={styles.captionLabel}>فيديو عن الغنيمه</span>
-            <span className={styles.captionTitle}>قصة ثقة على كل طريق</span>
-          </div>
+              <button
+                type="button"
+                className={styles.playButton}
+                aria-label="تشغيل الفيديو"
+                onClick={playVideo}
+              >
+                <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
+                  <path d="M1 1.5L18.5 12L1 22.5V1.5Z" fill="currentColor" />
+                </svg>
+              </button>
+
+              <div className={styles.caption}>
+                <span className={styles.captionLabel}>فيديو عن الغنيمه</span>
+                <span className={styles.captionTitle}>قصة ثقة على كل طريق</span>
+              </div>
+            </>
+          )}
         </div>
 
         <div className={styles.content}>
@@ -44,7 +75,7 @@ const BrandCards = () => {
             ))}
           </div>
 
-          <button type="button" className={styles.cta}>
+          <button type="button" className={styles.cta} onClick={playVideo}>
             شاهد قصة الغنيمه
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
               <path
